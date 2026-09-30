@@ -1,0 +1,13 @@
+name: Temporary event policy smoke test
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [policy-smoke]
+permissions: {}
+jobs:
+  marker:
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "codex-policy-smoke:$GITHUB_EVENT_NAME"
